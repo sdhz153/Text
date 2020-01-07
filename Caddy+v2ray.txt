@@ -85,7 +85,7 @@ vi /etc/v2ray/config.json(修改 i 退出修改Esc  退出Shift+q+! 编译后保
 "streamSettings": {
   "network": "ws",
   "wsSettings": {
-    "path": "/8c034a8c/"
+    "path": "/v2ray/"
   }
 }
 
@@ -107,7 +107,7 @@ vi /etc/v2ray/config.json(修改 i 退出修改Esc  退出Shift+q+! 编译后保
     "streamSettings": {
       "network": "ws",
       "wsSettings": {
-        "path": "/8c034a8c/"
+        "path": "/v2ray/"
       }
     }
   }],
