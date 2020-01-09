@@ -4,14 +4,14 @@
 
 二、常用軟件包
 
+apt update && apt upgrade
+
 #apt-get -y update && apt-get -y install unzip zip wget curl  nano sudo ufw socat ntp ntpdate gcc git
 
 ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 
 date -R
 
-
-apt update && apt upgrade
 
 安装nginx
 
@@ -63,7 +63,10 @@ vi /etc/v2ray/config.json(修改 i 退出修改Esc  退出Shift+q+! 编译后保
 在https://freessl.cn/申请证书用WinSCP上传到指定位置/etc/nginx/ssl/证书yourdomain.com.key和/etc/nginx/ssl/证书yourdomain.com.crt
 
 mkdir /etc/nginx/ssl #在nginx安装目录下创建ssl文件夹
-vi /etc/nginx/conf.d/default.conf #将此文件设置为如下配置：
+
+ #将此文件设置为如下配置：
+nano /etc/nginx/conf.d/default.conf
+
 
 server {
     listen       443 ssl;
