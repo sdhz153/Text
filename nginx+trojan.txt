@@ -55,11 +55,9 @@ echo "net.core.default_qdisc=fq" >> /etc/sysctl.conf
 echo "net.ipv4.tcp_congestion_control=bbr" >> /etc/sysctl.conf
 保存生效
 sysctl -p
-查看内核是否已开启BBR
-sysctl net.ipv4.tcp_available_congestion_control
-sysctl net.ipv4.tcp_congestion_control
 
-#lsmod | grep bbr
+查看内核是否已开启BBR
+lsmod | grep bbr
 返回值有 tcp_bbr 模块即说明 bbr 已启动
 
 
@@ -68,9 +66,6 @@ apt-get install ufw nano
 
 啓用UFW
 ufw enable
-
-查看UFW狀態
-ufw status verbose
 
 設置初始默認狀態
 sudo ufw default deny incoming
@@ -81,20 +76,11 @@ ufw allow ssh
 ufw allow http
 ufw allow https
 
-設置禁止ping
-nano /etc/ufw/before.rules
-
-以下内容"ACCEPT" 改爲 "DROP"
-
-# ok icmp codes
--A ufw-before-input -p icmp --icmp-type destination-unreachable -j DROP
--A ufw-before-input -p icmp --icmp-type source-quench -j DROP
--A ufw-before-input -p icmp --icmp-type time-exceeded -j DROP
--A ufw-before-input -p icmp --icmp-type parameter-problem -j DROP
--A ufw-before-input -p icmp --icmp-type echo-request -j DROP
-
 重啓UFW使設置生效
 ufw reload
+
+查看UFW狀態
+ufw status verbose
 
 啓用日志，默認級別low
 ufw logging on
