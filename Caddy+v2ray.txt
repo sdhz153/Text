@@ -82,12 +82,13 @@ vi /etc/v2ray/config.json(修改 i 退出修改Esc  退出Shift+q+! 编译后保
 # 在inbound的最后（settings之后）追加如下配置，记住videos路径
 
 "listen":"127.0.0.1",
-"streamSettings": {
-  "network": "ws",
-  "wsSettings": {
-    "path": "/v2ray/"
-  }
-}
+
+    },
+    "streamSettings": {
+      "network": "ws",
+      "wsSettings": {
+        "path": "/v2ray/"
+      }
 
 改好后
 {
