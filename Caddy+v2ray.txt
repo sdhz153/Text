@@ -49,7 +49,7 @@ https://www.xxxx.tk https://xxxx.tk {
 }
 
 #  更改tls后面的参数可以使用caddy 自动生成ssl证书  例如tls 1@1.com
-   
+
    tls /etc/ssl/v2ray.tk_chain.crt /etc/ssl/v2ray.tk_key.key {
      protocols tls1.0 tls1.2
    }
@@ -58,7 +58,7 @@ https://www.xxxx.tk https://xxxx.tk {
 #chmod 644 /etc/caddy/Caddyfile                #(644)      只有拥有者有读写权限；而属组用户和其他用户只有读权限。
 
 系統服務
-#wget https://raw.githubusercontent.com/caddyserver/caddy/master/dist/init/linux-systemd/caddy.service
+#wget https://raw.githubusercontent.com/caddyserver/caddy/v1/dist/init/linux-systemd/caddy.service
 #cp caddy.service /etc/systemd/system/
 #chown root:root /etc/systemd/system/caddy.service
 #chmod 644 /etc/systemd/system/caddy.service         #(644)      只有拥有者有读写权限；而属组用户和其他用户只有读权限。
@@ -168,6 +168,6 @@ ufw reset
 
 查看UFW配置文件
  nano /etc/default/ufw
- 
+
 最後參考見並感謝，
 https://palitechsociety.blogspot.com/2019/07/caddy-http2-v2ray-websocket-on-debian-10.html

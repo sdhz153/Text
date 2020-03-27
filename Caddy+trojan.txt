@@ -1,5 +1,5 @@
 
-操作系統debian10 
+操作系統debian10
                   ubuntu19.10
 
 一、新建VPS，注冊域名並解析好（略）
@@ -49,7 +49,7 @@ apt update && apt upgrade
 
 
 系統服務
-#wget https://raw.githubusercontent.com/caddyserver/caddy/master/dist/init/linux-systemd/caddy.service
+#wget https://raw.githubusercontent.com/caddyserver/caddy/v1/dist/init/linux-systemd/caddy.service
 #cp caddy.service /etc/systemd/system/
 #chown root:root /etc/systemd/system/caddy.service
 #chmod 644 /etc/systemd/system/caddy.service         #(644)      只有拥有者有读写权限；而属组用户和其他用户只有读权限。
@@ -136,6 +136,6 @@ ufw reset
 
 查看UFW配置文件
  nano /etc/default/ufw
- 
+
 最後參考見並感謝，
 https://palitechsociety.blogspot.com/2019/07/caddy-http2-v2ray-websocket-on-debian-10.html
