@@ -116,7 +116,6 @@ ufw allow ssh
 ufw allow http
 ufw allow https
 
-
 重啓UFW使設置生效
 ufw reload
 

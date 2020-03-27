@@ -232,7 +232,7 @@ ufw allow http
 
 ufw allow https
 
-ufw allow 29826/udp    (v2ray的config.json下的"port": 29826,)
+ufw allow 40754/udp    (v2ray的config.json下的"port": 40754,)
 
 重啓UFW使設置生效
 
