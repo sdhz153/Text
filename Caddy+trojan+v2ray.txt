@@ -1,5 +1,5 @@
 
-操作系統debian10
+操作系統debian10 ubuntu19.10
 
 一、新建VPS，注冊域名並解析好（略）
 
