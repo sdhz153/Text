@@ -201,10 +201,10 @@ lsmod | grep bbr
 
 TLS开启OSCP
 
-openssl s_client -connect www.wode001.tk:443 -status -tlsextdebug < /dev/null 2>&1 | grep -i "OCSP response"
+openssl s_client -connect www.xxxxxx.tk:443 -status -tlsextdebug < /dev/null 2>&1 | grep -i "OCSP response"
 
 
-TCP fastopen
+TCP开启 fastopen
 
 echo 3 > /proc/sys/net/ipv4/tcp_fastopen
 
