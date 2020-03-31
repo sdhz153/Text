@@ -86,6 +86,7 @@ systemctl enable caddy #设置为开机自动启动
 
 systemctl restart caddy   #每次修改后都要执行一次重启
 
+journalctl -fu trojan      #查看错误日志
 
 #停止caddy
 
