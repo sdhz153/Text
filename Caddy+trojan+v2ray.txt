@@ -76,23 +76,6 @@ chmod 644 /etc/systemd/system/caddy.service
 
 systemctl daemon-reload
 
-啓動
-
-systemctl start caddy
-
-systemctl status caddy
-
-systemctl enable caddy #设置为开机自动启动
-
-systemctl restart caddy   #每次修改后都要执行一次重启
-
-journalctl -fu trojan      #查看错误日志
-
-#停止caddy
-
-service caddy stop
-
-
 四、安裝trojan
 
 
@@ -162,30 +145,6 @@ vi /etc/v2ray/config.json(修改 i 退出修改Esc  退出Shift+q+! 编译后保
 }
 -------------------------------------------
 
-启动 trojan
-
-systemctl start trojan
-
-systemctl status trojan
-
-systemctl enable trojan #设置为开机自动启动
-
-systemctl restart trojan 每次修改后都要执行一次重启
-
-
-
-启动 V2Ray
-
-systemctl start v2ray
-
-systemctl status v2ray
-
-systemctl enable v2ray #设置为开机自动启动
-
-systemctl restart v2ray 每次修改后都要执行一次重启
-
-service v2ray stop   #停止v2ray
-
 
 六、加速優化
 BBR
@@ -202,13 +161,53 @@ lsmod | grep bbr
 
 TLS开启OSCP
 
-openssl s_client -connect www.xxxxxx.tk:443 -status -tlsextdebug < /dev/null 2>&1 | grep -i "OCSP response"
-
+openssl s_client -connect www.xxxxxx.tk:443 -servername www.xxxxxx.tk -status -tlsextdebug < /dev/null 2>&1 | grep -i "OCSP response"
 
 TCP开启 fastopen
 
 echo 3 > /proc/sys/net/ipv4/tcp_fastopen
 
+啓動
+
+systemctl start caddy
+
+systemctl status caddy
+
+systemctl enable caddy #设置为开机自动启动
+
+systemctl restart caddy   #每次修改后都要执行一次重启
+
+journalctl -fu caddy      #查看错误日志
+
+#停止caddy
+
+service caddy stop
+
+启动 trojan
+
+systemctl start trojan
+
+systemctl status trojan
+
+systemctl enable trojan #设置为开机自动启动
+
+systemctl restart trojan 每次修改后都要执行一次重启
+
+journalctl -fu trojan      #查看错误日志
+
+启动 V2Ray
+
+systemctl start v2ray
+
+systemctl status v2ray
+
+systemctl enable v2ray #设置为开机自动启动
+
+systemctl restart v2ray 每次修改后都要执行一次重启
+
+service v2ray stop   #停止v2ray
+
+journalctl -fu v2ray      #查看错误日志
 
 安裝 UFW和編輯器nano
 
