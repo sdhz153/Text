@@ -1,46 +1,46 @@
 ﻿操作系統debian10 ubuntu18.04
 
 ###
-    # apt-get -y update && apt-get -y install unzip wget curl  nano
+     apt-get -y update && apt-get -y install unzip wget curl  nano
 ###
 
 校准时间
 
 ###
-    # ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && date -R
+     ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && date -R
 ###
 
 安装v2ray
 ###
-    # curl -O https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/install-release.sh && bash install-release.sh
+     curl -O https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/install-release.sh && bash install-release.sh
 ###
 
 安装指定版本（下载v2ray-linux-xx.zip.dgst和v2ray-linux-xx.zip）
 
 ###
-    # bash install-release.sh --local ./v2ray-linux-xx.zip
+     bash install-release.sh --local ./v2ray-linux-xx.zip
 ###
 
 安装nginx
 
 ###
-    # apt install nginx
+     apt install nginx
 ###
 
 停止nginx
 
 ###
-    # service nginx stop
+     service nginx stop
 ###
 
 #配置nginx
  
 ###
-    # mkdir /etc/nginx/ssl
+      mkdir /etc/nginx/ssl
 ###
 
 ###
-    # nano /etc/nginx/conf.d/default.conf
+     nano /etc/nginx/conf.d/default.conf
 ###
 
 ###
