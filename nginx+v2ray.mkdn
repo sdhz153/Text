@@ -72,7 +72,7 @@
 编辑 /etc/v2ray/config.json 文件来配置你需要的代理方式。
 
 ###
-    nano /etc/v2ray/config.json
+    nano /usr/local/etc/v2ray/config.json
 
 VLESS
 ###
