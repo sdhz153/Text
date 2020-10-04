@@ -47,8 +47,12 @@
     server {
         listen       443 ssl;
         server_name  www.mu.tk mu.tk;
+	ssl on;
         ssl_certificate ssl/www.mu.tk_chain.crt;
         ssl_certificate_key ssl/www.mu.tk_key.key;
+        ssl_session_timeout 5m;
+        ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:ECDHE:ECDH:AES:HIGH:!NULL:!aNULL:!MD5:!ADH:!RC4;
+        ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
 
         location /d12f17ad-a344-f61b-1fef-13a2a2d98663/ {
             proxy_redirect off;
