@@ -26,7 +26,7 @@
     service nginx stop
 ###
 
-创建ssl文件夹放证书
+创建ssl文件夹  申请好证书放到ssl文件夹
 ###
     mkdir /etc/nginx/ssl
 ###
@@ -186,12 +186,12 @@
 ###
     nano /usr/local/etc/trojan/config.json
 ###
-修改三处
+修改三处 
 ###
     {
     "run_type": "server",
     "local_addr": "0.0.0.0",
-    "local_port": 1443,        # 修改为1443
+    "local_port": 1443,        # 端口443修改为1443，客户端内的端口要填1443
     "remote_addr": "127.0.0.1",
     "remote_port": 80,
     "password": [
