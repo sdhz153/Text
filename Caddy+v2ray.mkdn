@@ -1,7 +1,7 @@
 ﻿操作系統debian10 ubuntu18.04
 
 ###
-       apt-get -y update && apt-get -y install unzip wget curl  nano
+       apt-get -y update && apt-get -y install unzip wget curl  nano libnss3
 ###
 
 校准时间
