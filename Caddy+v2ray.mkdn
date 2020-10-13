@@ -31,9 +31,9 @@
 ###
 
 确认caddy版本
-
-caddy version
-
+###
+    caddy version
+###
 
 #配置caddy2证书
  
