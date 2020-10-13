@@ -59,7 +59,7 @@
     reverse_proxy @v2ray_websocket localhost:43627
     }
      www.mu.tk:80 mu.tk:80 {
-       redir https://https://github.com/sdhz153{uri}
+       redir https://github.com/sdhz153{uri}
     }
 ###
 
