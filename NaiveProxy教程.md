@@ -28,9 +28,7 @@
 ###
     go version
 ###
-
 ##编译安装 Caddy 和 forwardproxy 插件
-
 ## 克隆forwardproxy源码
 ## 拉取编译安装caddy定制化编译工具xcaddy
 ## 使用xcaddy拉取caddy并和forwardproxy插件一起编译
@@ -90,10 +88,7 @@
     }
     }
 ###
-
 ##新建一个web伪装站点目录/var/www/html，随便找个网站源码放进去。建议放个云服务网站的登录界面，这样比较符合长时间连接访问这个网站的特点。
-
-
 ##运行服务端
 ##下载和安装pm2
 ###
