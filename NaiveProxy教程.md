@@ -1,7 +1,8 @@
 
 ## 开启BBR加速（可跳过）
-echo "net.core.default_qdisc=fq" >> /etc/sysctl.conf && echo "net.ipv4.tcp_congestion_control=bbr" >> /etc/sysctl.conf && sysctl -p && lsmod | grep bbr
-
+###
+    echo "net.core.default_qdisc=fq" >> /etc/sysctl.conf && echo "net.ipv4.tcp_congestion_control=bbr" >> /etc/sysctl.conf && sysctl -p && lsmod | grep bbr
+###
 ## 基础工具下载安装
 apt update && apt -y install libnss3 wget git
 
