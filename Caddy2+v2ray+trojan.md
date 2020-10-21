@@ -330,8 +330,8 @@ BBR
     
     1443 tcp
     
-    v2ray "port": 10892,
+    v2ray "port": 43627,
     
-    10892 tcp
-    10892 udp
+    43627 tcp
+    43627 udp
 ###
