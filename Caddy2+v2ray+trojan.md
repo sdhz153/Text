@@ -24,7 +24,7 @@
 安装caddy2
 
 ###
-     echo "deb [trusted=yes] https://apt.fury.io/caddy/ /" \
+    echo "deb [trusted=yes] https://apt.fury.io/caddy/ /" \
     | tee -a /etc/apt/sources.list.d/caddy-fury.list
 
     apt update && apt install caddy
@@ -152,7 +152,7 @@ vmess
         },
         "streamSettings": {
         "network": "ws",
-			"wsSettings": {
+	"wsSettings": {
             "path": "/d12f17ad-a344-f61b-1fef-13a2a2d98663/"
             }
         }
