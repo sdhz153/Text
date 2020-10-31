@@ -81,14 +81,14 @@ VLESS
        },
      "inbounds": [
        {
-       "port":22427,
+       "port":43627,
          "listen": "127.0.0.1", 
          "tag": "VLESS-in", 
          "protocol": "VLESS", 
          "settings": {
            "clients": [
              {
-	     "id":"451e88a6-b6f1-711a-f570-9ac85179ac16",
+	     "id":"3f094ce3-ab40-ad8e-f9fc-941bd8667e8c",
                "alterId": 0
              }
            ],
@@ -97,7 +97,7 @@ VLESS
          "streamSettings": {
            "network": "ws", 
            "wsSettings": {
-	     "path":"/ae063f3a-fa0e-5e60-d38c-08cfc36be5a2/"
+	     "path":"/d12f17ad-a344-f61b-1fef-13a2a2d98663/"
            }
          }
        }
