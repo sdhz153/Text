@@ -50,6 +50,26 @@
 
 ## 编译成功后，可以看到当前目录中存在一个名为caddy的文件。
 
+## 在当前目录新建一个Caddyfile配置文件，配置文件示例如下，注意修改示例值和caddy.json配置文件二选一。
+###
+       :443, www.sdhz.tk
+       tls /etc/ssl/tls/www.sdhz.tk_chain.crt /etc/ssl/tls/www.sdhz.tk_key.key {
+           protocols tls1.2 tls1.3
+           ciphers TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384 TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256
+           curves x25519
+       }
+       route {
+         forward_proxy {
+           basic_auth sdhz 54f94054-8f6e-2aa5-1a4d-a70a5324982a
+           hide_ip
+           hide_via
+           probe_resistance
+         }
+         file_server { root /var/www/html }
+      }
+###
+
+
 ## 在当前目录新建一个caddy.json配置文件，配置文件示例如下，注意修改示例值。
 ###
     {
