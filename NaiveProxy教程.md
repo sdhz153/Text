@@ -118,9 +118,13 @@
 ###
     wget -qO- https://getpm2.com/install.sh | bash
 ###
-## 使用pm2启动caddy
+## 使用pm2启动caddy二选一
 ###
     pm2 start ./caddy -n caddy -- run -config caddy.json
+###
+## 使用pm2启动caddy二选一
+###
+    pm2 start ./caddy -n caddy -- run -config Caddyfile
 ###
 ## pm2 常用命令
 
