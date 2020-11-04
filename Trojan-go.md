@@ -121,29 +121,6 @@
 	echo "net.core.default_qdisc=fq" >> /etc/sysctl.conf && echo "net.ipv4.tcp_congestion_control=bbr" >> /etc/sysctl.conf && sysctl -p && lsmod | grep bbr
 ###
 
-## 加载trojan-go
-###
-	systemctl daemon-reload
-###
-## 开启trojan-go
-###
-	systemctl start trojan.service
-
-	systemctl status trojan.service
-###
-## 设置为开机自动启动
-###
-	systemctl enable trojan.service
-###
-## 每次修改后都要执行一次重启
-###
-	systemctl restart trojan.service
-###
-## 停止caddy
-###
-	service trojan.service stop
-###
-
 ## 开启caddy2
 ###
 systemctl start caddy
@@ -163,6 +140,28 @@ systemctl restart caddy
 service caddy stop
 ###
 
+## 加载trojan-go
+###
+	systemctl daemon-reload
+###
+## 开启trojan-go
+###
+	systemctl start trojan.service
+
+	systemctl status trojan.service
+###
+## 设置为开机自动启动
+###
+	systemctl enable trojan.service
+###
+## 每次修改后都要执行一次重启
+###
+	systemctl restart trojan.service
+###
+## 停止trojan-go
+###
+	service trojan.service stop
+###
 ## 服务器防火墙开启
 ###
 	80  443  1443
