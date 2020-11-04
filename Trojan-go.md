@@ -81,10 +81,10 @@
 
 ## 安装caddy2
 ###
-echo "deb [trusted=yes] https://apt.fury.io/caddy/ /" \
-| tee -a /etc/apt/sources.list.d/caddy-fury.list
+    echo "deb [trusted=yes] https://apt.fury.io/caddy/ /" \
+    | tee -a /etc/apt/sources.list.d/caddy-fury.list
 
-apt-get -y update && apt-get -y install caddy
+    apt update && apt install caddy
 ###
 ## 确认caddy版本
 ###
