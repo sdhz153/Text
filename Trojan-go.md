@@ -27,6 +27,7 @@
 ## 复制trojan-go.service文件
 ###
 	cp /etc/trojan/bin/example/trojan-go.service /etc/systemd/system/trojan.service
+	cp /etc/trojan/bin/example/trojan-go@.service /etc/systemd/system/trojan@.service
 ###
 ## 复制geoip.dat和geosite.dat文件
 ###
@@ -41,7 +42,13 @@
 	修改为
 	ExecStart=/etc/trojan/bin/trojan-go -config /etc/trojan/conf/server.json
 ###
+## 修改/etc/systemd/system/trojan@.service文件
 
+###
+    ExecStart=..................
+	修改为
+	ExecStart=/etc/trojan/bin/trojan-go -config /etc/trojan/conf/%i.json
+###
 ## 修改/etc/trojan/conf/server.json文件
 ###
     {
