@@ -9,10 +9,7 @@
 
 ## 新建一个目录，作为trojan-go的安装目录
 ###
-	mkdir /etc/trojan
-	mkdir /etc/trojan/bin
-	mkdir /etc/trojan/conf
-	mkdir /usr/share/trojan-go
+	mkdir /etc/trojan /etc/trojan/bin /etc/trojan/conf /usr/share/trojan-go
 ###
 
 ## 安装trojan-go
