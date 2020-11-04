@@ -4,24 +4,24 @@
     apt-get -y update && apt-get -y install unzip wget curl nano
 ###
 
-校准时间
+## 校准时间
 
 ###
      ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && date -R
 ###
 
-安装v2ray
+## 安装v2ray
 ###
      curl -O https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/install-release.sh && bash install-release.sh
 ###
 
-安装指定版本（下载v2ray-linux-xx.zip.dgst和v2ray-linux-xx.zip）上传位置 /root
+## 安装指定版本（下载v2ray-linux-xx.zip.dgst和v2ray-linux-xx.zip）上传位置 /root
 
 ###
      bash install-release.sh --local ./v2ray-linux-xx.zip
 ###
 
-安装caddy2
+## 安装caddy2
 
 ###
     echo "deb [trusted=yes] https://apt.fury.io/caddy/ /" \
@@ -30,18 +30,18 @@
     apt update && apt install caddy
 ###
 
-确认caddy版本
+## 确认caddy版本
 ###
     caddy version
 ###
 
-#配置caddy2证书
+## 配置caddy2证书
  
 ###
       mkdir -p /etc/ssl/caddy
 ###
 
-配置/etc/caddy/Caddyfile
+## 配置/etc/caddy/Caddyfile
 ###
     www.mu.tk:443 mu.tk:443 {
     root * /usr/share/caddy
@@ -65,13 +65,13 @@
 
 
 
-修改配置
-编辑 /etc/v2ray/config.json 文件来配置你需要的代理方式。
+## 修改配置
+## 编辑 /etc/v2ray/config.json 文件来配置你需要的代理方式。
 
 ###
     nano /usr/local/etc/v2ray/config.json
 
-VLESS
+## VLESS
 ###
       {
      "log": {
@@ -129,7 +129,7 @@ VLESS
    }
 
 ###
-vmess
+## vmess
 ###
     {
         "log": {
@@ -201,97 +201,114 @@ vmess
 ###
 ###
 
-安装trojan
+## 新建一个目录，作为trojan-go的安装目录
 ###
-    bash -c "$(curl -fsSL https://raw.githubusercontent.com/trojan-gfw/trojan-quickstart/master/trojan-quickstart.sh)"
+	mkdir /etc/trojan /etc/trojan/bin /etc/trojan/conf /usr/share/trojan-go
 ###
 
-修改config.json配置
+## 安装trojan-go
 ###
-    nano /usr/local/etc/trojan/config.json
+	wget --no-check-certificate -O /etc/trojan/bin/trojan-go-linux-amd64.zip "https://github.com/p4gefau1t/trojan-go/releases/download/v0.8.2/trojan-go-linux-amd64.zip"
 ###
-修改三处 
+## 解压trojan-go
+###
+	unzip -o -d /etc/trojan/bin /etc/trojan/bin/trojan-go-linux-amd64.zip
+###
+## 复制server.json文件
+###
+	cp /etc/trojan/bin/example/server.json /etc/trojan/conf/server.json
+###
+## 复制trojan-go.service文件
+###
+	cp /etc/trojan/bin/example/trojan-go.service /etc/systemd/system/trojan.service
+	cp /etc/trojan/bin/example/trojan-go@.service /etc/systemd/system/trojan@.service
+###
+## 复制geoip.dat和geosite.dat文件
+###
+	cp /etc/trojan/bin/geoip.dat /usr/share/trojan-go/geoip.dat
+	cp /etc/trojan/bin/geosite.dat /usr/share/trojan-go/geosite.dat
+###
+
+## 修改/etc/systemd/system/trojan.service文件
+
+###
+    ExecStart=..................
+	修改为
+	ExecStart=/etc/trojan/bin/trojan-go -config /etc/trojan/conf/server.json
+###
+## 修改/etc/systemd/system/trojan@.service文件
+
+###
+    ExecStart=..................
+	修改为
+	ExecStart=/etc/trojan/bin/trojan-go -config /etc/trojan/conf/%i.json
+###
+## 修改/etc/trojan/conf/server.json文件
 ###
     {
-    "run_type": "server",
-    "local_addr": "0.0.0.0",
-    "local_port": 1443,        # 端口443修改为1443，客户端内的端口要填1443
-    "remote_addr": "127.0.0.1",
-    "remote_port": 80,
-    "password": [
-        "55a03aa7-8909-2198-395c-5a8c23fcfa8b"
-    ],
-    "log_level": 1,
-    "ssl": {
-        "cert": "/etc/nginx/ssl/4582418_www.mu.tk.pem",   # 证书路径
-        "key": "/etc/nginx/ssl/4582418_www.mu.tk.key",    # 证书路径
-        "key_password": "",
-        "cipher": "ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384",
-        "cipher_tls13": "TLS_AES_128_GCM_SHA256:TLS_CHACHA20_POLY1305_SHA256:TLS_AES_256_GCM_SHA384",
-        "prefer_server_cipher": true,
-        "alpn": [
-            "http/1.1"
+        "run_type": "server",
+        "local_addr": "0.0.0.0",
+        "local_port": 1443,
+        "remote_addr": "127.0.0.1",
+        "remote_port": 80,
+        "password": [
+        "3f094ce3-ab40-ad8e-f9fc-941bd8667e8c"
         ],
-        "alpn_port_override": {
-            "h2": 81
+        "ssl": {
+            "cert": "/etc/ssl/caddy/4582418_www.mu.tk.pem",
+            "key": "/etc/ssl/caddy/4582418_www.mu.tk.key",
+            "sni": "www.mu.tk"
         },
-        "reuse_session": true,
-        "session_ticket": false,
-        "session_timeout": 600,
-        "plain_http_response": "",
-        "curves": "",
-        "dhparam": ""
-    },
-    "tcp": {
-        "prefer_ipv4": false,
-        "no_delay": true,
-        "keep_alive": true,
-        "reuse_port": false,
-        "fast_open": false,
-        "fast_open_qlen": 20
-    },
-    "mysql": {
-        "enabled": false,
-        "server_addr": "127.0.0.1",
-        "server_port": 3306,
-        "database": "trojan",
-        "username": "trojan",
-        "password": "",
-        "key": "",
-        "cert": "",
-        "ca": ""
+        "websocket": {
+            "enabled": true,
+            "path": "/d12f17ad-a344-f61b-1fef-13a2a2d98663/",
+            "host": "www.mu.tk"
+        },
+        "mux": {
+            "enabled": true,
+            "concurrency": 8,
+            "idle_timeout": 60
+        },
+        "router": {
+            "enabled": true,
+            "block": [
+            "geoip:private"
+            ],
+            "geoip": "/usr/share/trojan-go/geoip.dat",
+            "geosite": "/usr/share/trojan-go/geosite.dat"
+        }
     }
-    }
+###
 
 ###
 BBR
-修改系统变量
+## 修改系统变量
 
 ###
     echo "net.core.default_qdisc=fq" >> /etc/sysctl.conf && echo "net.ipv4.tcp_congestion_control=bbr" >> /etc/sysctl.conf && sysctl -p && lsmod | grep bbr
 ###
 
-开启caddy2
+## 开启caddy2
 
 ###
     systemctl start caddy
 
     systemctl status caddy
 
-#设置为开机自动启动
+## 设置为开机自动启动
 
     systemctl enable caddy
 
-#每次修改后都要执行一次重启
+## 每次修改后都要执行一次重启
 
     systemctl restart caddy
 
-#停止caddy
+## 停止caddy
 
     service caddy stop
 ###
 
-启动 V2Ray
+## 启动 V2Ray
 
 ###
     systemctl start v2ray
@@ -301,38 +318,46 @@ BBR
     systemctl status v2ray
 ###
 
-#设置为开机自动启动
+## 设置为开机自动启动
 ###
     systemctl enable v2ray
 ###
 
-每次修改后都要执行一次重启
+## 每次修改后都要执行一次重启
  ###
     systemctl restart v2ray
 ###
 
-启动 trojan
+## 加载trojan-go
 ###
-     加载
-     systemctl start trojan
-     
-     运行
-     systemctl status trojan
-     
-     开机自动启动
-     systemctl enable trojan
-     
-     重新启动
-     systemctl restart trojan
+	systemctl daemon-reload
 ###
-服务器防火墙开启
+## 开启trojan-go
 ###
-    trojan local_port": 1443
+	systemctl start trojan.service
+
+	systemctl status trojan.service
+###
+## 设置为开机自动启动
+###
+	systemctl enable trojan.service
+###
+## 每次修改后都要执行一次重启
+###
+	systemctl restart trojan.service
+###
+## 停止trojan-go
+###
+	service trojan.service stop
+###
+
+## 服务器防火墙开启
+###
+    trojan-go local_port": 1443
     
     1443 tcp
     
     v2ray "port": 43627,
     
     43627 tcp
-    43627 udp
 ###
