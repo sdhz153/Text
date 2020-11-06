@@ -105,12 +105,12 @@
 ## 配置/etc/caddy/Caddyfile
 ###
     :80 {
-	file_server { root /usr/share/caddy }
-	@v2ray_websocket {
-		path /a43c9856-5b38-81d8-835c-97ea4dd26361/
-		header Connection *Upgrade*
-		header Upgrade websocket
-	}
+	    file_server { root /usr/share/caddy }
+	    @websocket {
+		    path /a43c9856-5b38-81d8-835c-97ea4dd26361/
+		    header Connection *Upgrade*
+		    header Upgrade websocket
+	    }
     }	
 ###
 
