@@ -104,22 +104,13 @@
 ###
 ## 配置/etc/caddy/Caddyfile
 ###
-    www.u360.ml:443 u360.ml:443 {
-    root * /usr/share/caddy
-    file_server
-    tls /etc/ssl/caddy/www.u360.ml_chain.crt /etc/ssl/caddy/www.u360.ml_key.key {
-       protocols tls1.2 tls1.3
-       ciphers TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384 TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256
-       curves x25519
-    }
-    @v2ray_websocket {
-        path /a43c9856-5b38-81d8-835c-97ea4dd26361/
-        header Connection *Upgrade*
-        header Upgrade websocket
-    }
-    }
-    www.u360.ml:80 u360.ml:80 {
-       redir https://u360.ml{uri}
+    :80 {
+	file_server { root /usr/share/caddy }
+	@v2ray_websocket {
+		path /a43c9856-5b38-81d8-835c-97ea4dd26361/
+		header Connection *Upgrade*
+		header Upgrade websocket
+	}
     }	
 ###
 
