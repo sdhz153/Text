@@ -30,11 +30,13 @@
 ## 复制trojan-go.service文件
 ###
     cp /etc/trojan-go/bin/example/trojan-go.service /etc/systemd/system/trojan.service
+###
     cp /etc/trojan-go/bin/example/trojan-go@.service /etc/systemd/system/trojan@.service
 ###
 ## 复制geoip.dat和geosite.dat文件
 ###
     cp /etc/trojan-go/bin/geoip.dat /usr/share/trojan-go/geoip.dat
+###
     cp /etc/trojan-go/bin/geosite.dat /usr/share/trojan-go/geosite.dat
 ###
 ## 修改/etc/trojan/conf/server.json文件
