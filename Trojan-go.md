@@ -44,7 +44,7 @@
     {
         "run_type": "server",
         "local_addr": "0.0.0.0",
-        "local_port": 1443,
+        "local_port": 443,
         "remote_addr": "127.0.0.1",
         "remote_port": 80,
         "password": [
@@ -106,51 +106,51 @@
 
 ## 开启BBR加速（可跳过）
 ###
-	echo "net.core.default_qdisc=fq" >> /etc/sysctl.conf && echo "net.ipv4.tcp_congestion_control=bbr" >> /etc/sysctl.conf && sysctl -p && lsmod | grep bbr
+    echo "net.core.default_qdisc=fq" >> /etc/sysctl.conf && echo "net.ipv4.tcp_congestion_control=bbr" >> /etc/sysctl.conf && sysctl -p && lsmod | grep bbr
 ###
 
 ## 开启caddy2
 ###
-systemctl start caddy
-
-systemctl status caddy
+    systemctl start caddy
+###
+    systemctl status caddy
 ###
 ## 设置为开机自动启动
 ###
-systemctl enable caddy
+    systemctl enable caddy
 ###
 ## 每次修改后都要执行一次重启
 ###
-systemctl restart caddy
+    systemctl restart caddy
 ###
 ## 停止caddy
 ###
-service caddy stop
+    service caddy stop
 ###
 
 ## 加载trojan-go
 ###
-	systemctl daemon-reload
+    systemctl daemon-reload
 ###
 ## 开启trojan-go
 ###
-	systemctl start trojan.service
-
-	systemctl status trojan.service
+    systemctl start trojan.service
+###
+    systemctl status trojan.service
 ###
 ## 设置为开机自动启动
 ###
-	systemctl enable trojan.service
+    systemctl enable trojan.service
 ###
 ## 每次修改后都要执行一次重启
 ###
-	systemctl restart trojan.service
+    systemctl restart trojan.service
 ###
 ## 停止trojan-go
 ###
-	service trojan.service stop
+    service trojan.service stop
 ###
 ## 服务器防火墙开启
 ###
-	80  443  1443
+    80  443
 ###
