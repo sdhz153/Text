@@ -9,45 +9,33 @@
 
 ## 新建一个目录，作为trojan-go的安装目录
 ###
-	mkdir /etc/trojan /etc/trojan/bin /etc/trojan/conf /usr/share/trojan-go
+    mkdir -p /etc/trojan-go/bin /usr/share/trojan-go
 ###
 
 ## 安装trojan-go
 ###
-	wget --no-check-certificate -O /etc/trojan/bin/trojan-go-linux-amd64.zip "https://github.com/p4gefau1t/trojan-go/releases/download/v0.8.2/trojan-go-linux-amd64.zip"
+    wget --no-check-certificate -O /etc/trojan-go/bin/trojan-go-linux-amd64.zip "https://github.com/p4gefau1t/trojan-go/releases/download/v0.8.2/trojan-go-linux-amd64.zip"
 ###
 ## 解压trojan-go
 ###
-	unzip -o -d /etc/trojan/bin /etc/trojan/bin/trojan-go-linux-amd64.zip
+    unzip -o -d /etc/trojan-go/bin /etc/trojan-go/bin/trojan-go-linux-amd64.zip
 ###
 ## 复制server.json文件
 ###
-	cp /etc/trojan/bin/example/server.json /etc/trojan/conf/server.json
+    cp /etc/trojan-go/bin/example/server.json /etc/trojan-go/config.json
 ###
+    cp /etc/trojan-go/bin/trojan-go /usr/bin/trojan-go
+###
+
 ## 复制trojan-go.service文件
 ###
-	cp /etc/trojan/bin/example/trojan-go.service /etc/systemd/system/trojan.service
-	cp /etc/trojan/bin/example/trojan-go@.service /etc/systemd/system/trojan@.service
+    cp /etc/trojan-go/bin/example/trojan-go.service /etc/systemd/system/trojan.service
+    cp /etc/trojan-go/bin/example/trojan-go@.service /etc/systemd/system/trojan@.service
 ###
 ## 复制geoip.dat和geosite.dat文件
 ###
-	cp /etc/trojan/bin/geoip.dat /usr/share/trojan-go/geoip.dat
-	cp /etc/trojan/bin/geosite.dat /usr/share/trojan-go/geosite.dat
-###
-
-## 修改/etc/systemd/system/trojan.service文件
-
-###
-    ExecStart=..................
-	修改为
-	ExecStart=/etc/trojan/bin/trojan-go -config /etc/trojan/conf/server.json
-###
-## 修改/etc/systemd/system/trojan@.service文件
-
-###
-    ExecStart=..................
-	修改为
-	ExecStart=/etc/trojan/bin/trojan-go -config /etc/trojan/conf/%i.json
+    cp /etc/trojan-go/bin/geoip.dat /usr/share/trojan-go/geoip.dat
+    cp /etc/trojan-go/bin/geosite.dat /usr/share/trojan-go/geosite.dat
 ###
 ## 修改/etc/trojan/conf/server.json文件
 ###
