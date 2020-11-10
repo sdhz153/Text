@@ -39,7 +39,7 @@
 ###
     cp /etc/trojan-go/bin/geosite.dat /usr/share/trojan-go/geosite.dat
 ###
-## 修改/etc/trojan/conf/server.json文件
+## 修改/etc/trojan-go/config.json文件
 ###
     {
         "run_type": "server",
