@@ -1,52 +1,54 @@
-﻿操作系統debian10 ubuntu18.04
+﻿## 操作系統debian10 ubuntu18.04
 
 ###
-     apt-get -y update && apt-get -y install unzip wget curl  nano
+    apt-get -y update && apt-get -y install unzip wget curl  nano
 ###
 
-校准时间
+## 校准时间
 
 ###
-     ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && date -R
+    ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && date -R
 ###
 
-安装v2ray
+## 安装v2ray
 ###
-     curl -O https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/install-release.sh && bash install-release.sh
+    curl -O https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/install-release.sh && bash install-release.sh
 ###
 
-安装指定版本（下载v2ray-linux-xx.zip.dgst和v2ray-linux-xx.zip）上传位置 /root
+## 安装指定版本（下载v2ray-linux-xx.zip.dgst和v2ray-linux-xx.zip）上传位置 /root
 
 ###
-     bash install-release.sh --local ./v2ray-linux-xx.zip
+    bash install-release.sh --local ./v2ray-linux-xx.zip
 ###
 
 安装nginx
 
 ###
-     apt install nginx
+    apt install nginx
 ###
 
 停止nginx
 
 ###
-     service nginx stop
+    service nginx stop
 ###
 
-#配置nginx
+## 配置nginx
  
 ###
-      mkdir /etc/nginx/ssl
+    mkdir /etc/nginx/ssl
 ###
-
+    mkdir /usr/share/www.mu.tk
 ###
-     nano /etc/nginx/conf.d/default.conf
+    nano /etc/nginx/conf.d/default.conf
 ###
 
 ###
     server {
         listen       443 ssl;
         server_name  www.mu.tk mu.tk;
+        root  /usr/share/www.mu.tk;
+	index index.html index.htm index.php default.html default.htm default.php;
 	ssl on;
         ssl_certificate ssl/www.mu.tk_chain.crt;
         ssl_certificate_key ssl/www.mu.tk_key.key;
@@ -72,13 +74,13 @@
 
 
 
-修改配置
-编辑 /etc/v2ray/config.json 文件来配置你需要的代理方式。
+## 修改配置
+## 编辑 /etc/v2ray/config.json 文件来配置你需要的代理方式。
 
 ###
     nano /usr/local/etc/v2ray/config.json
 
-VLESS
+## VLESS
 ###
     {
      "log": {
@@ -135,7 +137,7 @@ VLESS
      }
     }
 ###
-vmess
+## vmess
 ###
     {
         "log": {
@@ -206,30 +208,30 @@ vmess
     }
 ###
 
-BBR
-修改系统变量
+## BBR
+## 修改系统变量
 
 ###
     echo "net.core.default_qdisc=fq" >> /etc/sysctl.conf && echo "net.ipv4.tcp_congestion_control=bbr" >> /etc/sysctl.conf && sysctl -p && lsmod | grep bbr
 ###
 
-开启nginx
+## 开启nginx
 
 ###
     systemctl start nginx && systemctl status nginx && systemctl enable nginx
 ###
 
-重新启动
+## 重新启动
 ###
     systemctl restart nginx
 ###
 
-停止nginx
+## 停止nginx
 ###
     service nginx stop
 ###
 
-启动 V2Ray
+## 启动 V2Ray
 
 ###
     systemctl start v2ray
@@ -239,12 +241,12 @@ BBR
     systemctl status v2ray
 ###
 
-#设置为开机自动启动
+## 设置为开机自动启动
 ###
     systemctl enable v2ray
 ###
 
-每次修改后都要执行一次重启
+## 每次修改后都要执行一次重启
  ###
     systemctl restart v2ray
 ###
