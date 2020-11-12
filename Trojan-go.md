@@ -148,7 +148,7 @@
 ###
 ## 停止trojan-go
 ###
-    service trojan.service stop
+    systemctl trojan.service stop
 ###
 ## 服务器防火墙开启
 ###
