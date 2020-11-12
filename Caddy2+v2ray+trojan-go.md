@@ -257,7 +257,9 @@
         "ssl": {
             "cert": "/etc/ssl/caddy/4582418_www.mu.tk.pem",
             "key": "/etc/ssl/caddy/4582418_www.mu.tk.key",
-            "sni": "www.mu.tk"
+            "sni": "www.mu.tk",
+            "fallback_addr": "127.0.0.1",
+            "fallback_port": 443
         },
         "websocket": {
             "enabled": true,
