@@ -205,6 +205,8 @@
         "cipher": "ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384",
         "cipher_tls13": "TLS_AES_128_GCM_SHA256:TLS_CHACHA20_POLY1305_SHA256:TLS_AES_256_GCM_SHA384",
         "prefer_server_cipher": true,
+        "server_addr": "127.0.0.1",
+        "server_port": 443,
         "alpn": [
             "http/1.1"
         ],
@@ -241,50 +243,51 @@
 
 ###
 
-开启BBR加速
+### 开启BBR加速
 ###
     echo "net.core.default_qdisc=fq" >> /etc/sysctl.conf && echo "net.ipv4.tcp_congestion_control=bbr" >> /etc/sysctl.conf && sysctl -p && lsmod | grep bbr
 ###
 
-启动nginx
-###   
-     加载
+### 启动nginx
+
+### 加载
      systemctl start nginx
-     
-     运行
+### 运行
+    
      systemctl status nginx
-     
-     开机自动启动
+### 开机自动启动
+    
      systemctl enable nginx
-     
-     重新启动
+### 重新启动
+    
      systemctl restart nginx
-     
-     停止nginx
-     service nginx stop
+### 停止nginx
+    service nginx stop
 ###
 
 启动 trojan
-###
-         加载
+###   加载
+      
      systemctl start trojan
      
      运行
      systemctl status trojan
      
-     开机自动启动
+    
+### 开机自动启动
      systemctl enable trojan
-     
-     重新启动
+
+    
+### 重新启动
      systemctl restart trojan
      
-     停止nginx
+### 停止nginx
      service trojan stop
 ###
 
-启动 V2Ray
-###
-         加载
+
+### 启动 加载V2Ray
+         
      systemctl start v2ray
      
      运行
