@@ -54,6 +54,8 @@
             "cert": "/etc/ssl/caddy/www.u360.ml_chain.crt",
             "key": "/etc/ssl/caddy/www.u360.ml_key.key",
             "sni": "www.u360.ml"
+            "fallback_addr": "127.0.0.1",
+            "fallback_port": 443
         },
         "websocket": {
             "enabled": true,
@@ -145,10 +147,6 @@
 ## 每次修改后都要执行一次重启
 ###
     systemctl restart trojan.service
-###
-## 停止trojan-go
-###
-    systemctl trojan.service stop
 ###
 ## 服务器防火墙开启
 ###
