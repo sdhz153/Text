@@ -43,7 +43,7 @@
 
 ## 配置/etc/caddy/Caddyfile
 ###
-    www.mu.tk:443 mu.tk:443 {
+    www.mu.tk:443 {
     root * /usr/share/caddy
     file_server
     tls /etc/ssl/caddy/4582418_www.mu.tk.pem /etc/ssl/caddy/4582418_www.mu.tk.key {
@@ -58,7 +58,7 @@
     }
     reverse_proxy @v2ray_websocket localhost:43627
     }
-     www.mu.tk:80 mu.tk:80 {
+     www.mu.tk:80 {
        redir https://mu.tk{uri}
     }
 ###
