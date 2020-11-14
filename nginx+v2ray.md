@@ -46,7 +46,7 @@
 ###
     server {
         listen       443 ssl;
-        server_name  www.mu.tk mu.tk;
+        server_name  www.mu.tk;
         root  /usr/share/www.mu.tk;
 	index index.html index.htm index.php default.html default.htm default.php;
 	ssl on;
@@ -67,7 +67,7 @@
     }
     server {
         listen 80;
-	server_name www.mu.tk mu.tk;
+	server_name www.mu.tk;
 	return 301 https://www.bilibili.com$request_uri;
     }
 ###
