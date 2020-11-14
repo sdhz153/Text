@@ -96,7 +96,7 @@
 ###
 ## 配置/etc/caddy/Caddyfile
 ###
-    www.u360.ml:443 u360.ml:443 {
+    www.u360.ml:443 {
     root * /usr/share/caddy
     file_server
     tls /etc/ssl/caddy/4582418_www.u360.ml.pem /etc/ssl/caddy/4582418_www.u360.ml.key {
@@ -111,7 +111,7 @@
     }
     reverse_proxy @v2ray_websocket
     }
-     www.u360.ml:80 u360.ml:80 {
+     www.u360.ml:80 {
        redir https://u360.ml{uri}
     }
 ###
