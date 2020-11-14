@@ -49,14 +49,14 @@
     server {
         listen 80;
         #listen [::]:80;
-        server_name www.sd.tk sd.tk;
+        server_name www.sd.tk;
         #将http重定向到https
         return 301 https://www.sd.tk$request_uri;
     }
     server {
         listen 443 ssl http2;
         #listen [::]:443 ssl http2;
-        server_name www.sd.tk sd.tk;
+        server_name www.sd.tk;
         ssl on;
         ssl_certificate ssl/4582418_www.sd.tk.pem;
         ssl_certificate_key ssl/4582418_www.sd.tk.key;
