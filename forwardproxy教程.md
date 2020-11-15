@@ -39,9 +39,9 @@
 
     setcap cap_net_bind_service=+ep ./caddy
 
-    mkdir -p /var/www/html
+    mkdir -p /usr/share/caddy
 
-    mkdir -p /etc/ssl/tls
+    mkdir -p /etc/ssl/caddy
 ###
 
 ## 编译成功后，可以看到当前目录中存在一个名为caddy的文件。
@@ -49,7 +49,7 @@
 ## 在当前目录新建一个Caddyfile配置文件，配置文件示例如下，注意修改示例值和caddy.json配置文件二选一。
 ###
        :443, www.sdhz.tk
-       tls /etc/ssl/tls/www.sdhz.tk_chain.crt /etc/ssl/tls/www.sdhz.tk_key.key {
+       tls /etc/ssl/caddy/www.sdhz.tk_chain.crt /etc/ssl/caddy/www.sdhz.tk_key.key {
            protocols tls1.2 tls1.3
            ciphers TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384 TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256
            curves x25519
@@ -61,7 +61,7 @@
            hide_via
            probe_resistance
          }
-         file_server { root /var/www/html }
+         file_server { root /usr/share/caddy }
       }
 ###
 
@@ -87,7 +87,7 @@
             "match": [{"host": ["www.sdhz.tk"]}],
             "handle": [{
               "handler": "file_server",
-              "root": "/var/www/html"
+              "root": "/usr/share/caddy"
             }],
             "terminal": true
           }],
@@ -100,8 +100,8 @@
     "tls": {
       "certificates": {
         "load_files": [{
-          "certificate": "/etc/ssl/tls/www.sdhz.tk.pem",
-          "key": "/etc/ssl/tls/www.sdhz.tk.key"
+          "certificate": "/etc/ssl/caddy/www.sdhz.tk.pem",
+          "key": "/etc/ssl/caddy/www.sdhz.tk.key"
         }]
       }
     }
