@@ -58,10 +58,10 @@
        }
        route {
          forward_proxy {
-           basic_auth sdhz 54f94054-8f6e-2aa5-1a4d-a70a5324982a
+           basic_auth sdhz ace9aef5-d495-3fe9-432a-22ced7d61bce
            hide_ip
            hide_via
-           probe_resistance
+           probe_resistance github.com
          }
          file_server { root /usr/share/caddy }
       }
@@ -117,28 +117,31 @@
     echo "net.core.default_qdisc=fq" >> /etc/sysctl.conf && echo "net.ipv4.tcp_congestion_control=bbr" >> /etc/sysctl.conf && sysctl -p && lsmod | grep bbr
 ###
 
-### 注册systemd服务
+### 注册systemd服务,注意修改示例值是caddy.json把下面8行9行改为caddy.json
 ### 新建caddy.service文件，命令：
 ###
     nano /etc/systemd/system/caddy.service
 ###
 ### 添加如下内容
 ###
-    :443, www.sdhz.tk
-       tls /etc/ssl/caddy/www.sdhz.tk_chain.crt /etc/ssl/caddy/www.sdhz.tk_key.key {
-           protocols tls1.2 tls1.3
-           ciphers TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384 TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256
-           curves x25519
-       }
-       route {
-         forward_proxy {
-           basic_auth u365 dce9aef5-d495-3fe9-432a-42ced7d61bce
-           hide_ip
-           hide_via
-           probe_resistance github.com
-         }
-         file_server { root /usr/share/caddy }
-    }
+    [Unit]
+    Description=Caddy
+    Documentation=https://caddyserver.com/docs/
+    After=network.target
+
+    [Service]
+    User=root
+    ExecStart=/root/caddy run --environ --config /root/Caddyfile
+    ExecReload=/root/caddy reload --config /root/Caddyfile
+    TimeoutStopSec=5s
+    LimitNOFILE=1048576
+    LimitNPROC=512
+    PrivateTmp=true
+    ProtectSystem=full
+    AmbientCapabilities=CAP_NET_BIND_SERVICE
+
+    [Install]
+    WantedBy=multi-user.target
 ###
 ### 重载systemctl服务
     systemctl daemon-reload
