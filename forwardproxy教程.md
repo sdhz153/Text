@@ -117,54 +117,41 @@
     echo "net.core.default_qdisc=fq" >> /etc/sysctl.conf && echo "net.ipv4.tcp_congestion_control=bbr" >> /etc/sysctl.conf && sysctl -p && lsmod | grep bbr
 ###
 
-## 运行服务端
-## 下载和安装pm2
+### 注册systemd服务
+### 新建caddy.service文件，命令：
 ###
-    wget -qO- https://getpm2.com/install.sh | bash
+    nano /etc/systemd/system/caddy.service
 ###
-## 使用pm2启动caddy二选一
+### 添加如下内容
 ###
-    pm2 start ./caddy -n caddy -- run -config caddy.json
+    :443, www.sdhz.tk
+       tls /etc/ssl/caddy/www.sdhz.tk_chain.crt /etc/ssl/caddy/www.sdhz.tk_key.key {
+           protocols tls1.2 tls1.3
+           ciphers TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384 TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256
+           curves x25519
+       }
+       route {
+         forward_proxy {
+           basic_auth u365 dce9aef5-d495-3fe9-432a-42ced7d61bce
+           hide_ip
+           hide_via
+           probe_resistance github.com
+         }
+         file_server { root /usr/share/caddy }
+    }
 ###
-## 使用pm2启动caddy二选一
-###
-    pm2 start ./caddy -n caddy -- run -config Caddyfile
-###
-## pm2 常用命令
+### 重载systemctl服务
+    systemctl daemon-reload
 
- ## 停止服务
- ###
-    pm2 stop caddy
-###
- ## 查看状态
- ###
-    pm2 status caddy
-###
-## 重启服务
-###
-    pm2 restart caddy
-###
- ## 查看服务的参数信息
- ###
-    pm2 show caddy
-###
- ## 查看服务日志
- ###
-    pm2 log caddy
-###
- ## 查看已部署的服务列表
- ###
-    pm2 ls
-###
- ## 监控服务状态
- ###
-    pm2 monit
-###
- ## 清理所有日志文件
- ###
-    pm2 flush
-###
- ## 更新 pm2 状态
- ###
-    pm2 update
+### 到这也就可以启动caddy了，启动命令
+### #启动
+    systemctl start caddy
+### #重启
+    systemctl restart caddy
+### #查看状态
+    systemctl status caddy
+### #停止
+    systemctl stop caddy
+### #添加开机自启动
+    systemctl enable caddy
 ###
