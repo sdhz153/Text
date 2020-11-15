@@ -34,14 +34,16 @@
 ## 使用xcaddy拉取caddy并和forwardproxy插件一起编译
 ###
     go get -u github.com/caddyserver/xcaddy/cmd/xcaddy
-
+###
     ~/go/bin/xcaddy build --with github.com/caddyserver/forwardproxy@caddy2=github.com/klzgrad/forwardproxy@naive
-
+###
     setcap cap_net_bind_service=+ep ./caddy
-
+###
     mkdir -p /usr/share/caddy
-
+###
     mkdir -p /etc/ssl/caddy
+###
+    nano /root/Caddyfile
 ###
 
 ## 编译成功后，可以看到当前目录中存在一个名为caddy的文件。
