@@ -117,7 +117,9 @@
     echo "net.core.default_qdisc=fq" >> /etc/sysctl.conf && echo "net.ipv4.tcp_congestion_control=bbr" >> /etc/sysctl.conf && sysctl -p && lsmod | grep bbr
 ###
 
-### 注册systemd服务,注意修改示例值是caddy.json把下面8行9行改为caddy.json
+### 注册systemd服务,注意修改示例值是caddy.json把下面改为caddy.json
+### ExecStart=/root/caddy run --environ --config /root/Caddyfile
+### ExecReload=/root/caddy reload --config /root/Caddyfile
 ### 新建caddy.service文件，命令：
 ###
     nano /etc/systemd/system/caddy.service
