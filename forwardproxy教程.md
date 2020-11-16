@@ -129,7 +129,8 @@
     [Unit]
     Description=Caddy
     Documentation=https://caddyserver.com/docs/
-    After=network.target
+    After=network.target network-online.target
+    Requires=network-online.target
 
     [Service]
     User=root
@@ -148,15 +149,21 @@
 ### 重载systemctl服务
     systemctl daemon-reload
 
-### 到这也就可以启动caddy了，启动命令
-### #启动
+## 开启caddy2
+###
     systemctl start caddy
-### #重启
-    systemctl restart caddy
-### #查看状态
+###
     systemctl status caddy
-### #停止
-    systemctl stop caddy
-### #添加开机自启动
+###
+## 设置为开机自动启动
+###
     systemctl enable caddy
+###
+## 每次修改后都要执行一次重启
+###
+    systemctl restart caddy
+###
+## 停止caddy
+###
+    service caddy stop
 ###
