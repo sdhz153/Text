@@ -7,18 +7,18 @@
 ## 校准时间
 
 ###
-     ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && date -R
+    ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && date -R
 ###
 
 ## 安装v2ray
 ###
-     curl -O https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/install-release.sh && bash install-release.sh
+    curl -O https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/install-release.sh && bash install-release.sh
 ###
 
 ## 安装指定版本（下载v2ray-linux-xx.zip.dgst和v2ray-linux-xx.zip）上传位置 /root
 
 ###
-     bash install-release.sh --local ./v2ray-linux-xx.zip
+    bash install-release.sh --local ./v2ray-linux-xx.zip
 ###
 
 ## 安装caddy2
@@ -38,7 +38,7 @@
 ## 配置caddy2证书
  
 ###
-      mkdir -p /etc/ssl/caddy
+    mkdir -p /etc/ssl/caddy
 ###
 
 ## 配置/etc/caddy/Caddyfile
