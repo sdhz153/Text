@@ -38,8 +38,6 @@
 ###
     mkdir /etc/nginx/ssl
 ###
-    mkdir /usr/share/www.mu.tk
-###
     nano /etc/nginx/conf.d/default.conf
 ###
 
@@ -47,7 +45,7 @@
     server {
         listen       443 ssl;
         server_name  www.mu.tk;
-        root  /usr/share/www.mu.tk;
+        root  /usr/share/nginx/html;
 	index index.html index.htm index.php default.html default.htm default.php;
 	ssl on;
         ssl_certificate ssl/www.mu.tk_chain.crt;
