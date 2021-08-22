@@ -36,7 +36,7 @@
     /etc/caddy/Caddyfile
 ###
 ###
-    www.u000.tk {
+    www.u000.tk:443, u000.tk:443 {
 	    root * /usr/share/caddy
         log {
             output file /etc/caddy/caddy.log
@@ -84,10 +84,6 @@
 ##查看运行状态
 ###
     systemctl status caddy
-###
-##开机自启
-###
-    systemctl enbale caddy
 ###
 
 ##每次修改后都要执行一次重启
