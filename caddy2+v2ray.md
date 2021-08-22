@@ -36,17 +36,13 @@
     /etc/caddy/Caddyfile
 ###
 ###
-    www.u000.tk:443, u000.tk:443 {
+    www.u000.tk {
 	    root * /usr/share/caddy
         log {
             output file /etc/caddy/caddy.log
         }
 	    file_server
-	    tls /etc/ssl/caddy/www.u000.tk_chain.crt /etc/ssl/caddy/www.u000.tk_key.key {
-		    protocols tls1.2 tls1.3
-		    ciphers TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384 TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256
-		    curves x25519
-	    }
+	    tls /etc/ssl/caddy/www.u000.tk_chain.crt /etc/ssl/caddy/www.u000.tk_key.key
 	    reverse_proxy /5b14023b-da32-09b8-03fe-05f0ec70efba/ localhost:13627 {
             transport http {
               versions h2c
