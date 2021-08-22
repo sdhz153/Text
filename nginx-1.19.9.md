@@ -1,6 +1,6 @@
 ## 安装依赖
 ###
-    apt-get install build-essential libpcre3 libpcre3-dev zlib1g-dev git dbus manpages-dev aptitude g++ wget curl
+    apt-get install build-essential libpcre3 libpcre3-dev zlib1g-dev git dbus manpages-dev aptitude g++ wget curl unzip
 ###
 
 ## 1.下载/安装 openssl-1.1.1（使 nginx 支持TLS 1.3）
