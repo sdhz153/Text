@@ -21,10 +21,10 @@
         | tee -a /etc/apt/sources.list.d/caddy-fury.list
 ###
 ###
-    apt update
+    apt-get update && apt-get upgrade
 ###
 ###
-    apt install caddy
+    apt-get install caddy
 ###
 
 ## 确定caddy文件安装在何处
