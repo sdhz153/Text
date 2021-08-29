@@ -62,7 +62,8 @@
 ###
 ###
     server {
-        listen       443 ssl;
+        listen       443 ssl http2;
+        listen [::]:443 ssl ipv6only=on http2;
         server_name  www.u1314.tk u1314.tk;
         ssl_certificate      /etc/nginx/ssl/www.1314.tk_chain.crt;
         ssl_certificate_key  /etc/nginx/ssl/www.1314.tk_key.key;
