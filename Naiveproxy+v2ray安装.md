@@ -51,7 +51,9 @@
     mkdir -p /usr/share/caddy/ /etc/ssl/caddy/ /var/log/caddy/
 ###
 
-##  打开Caddyfile文件 保存退出
+
+<details>
+<summary>打开Caddyfile文件 保存退出</summary>
 ###
     nano /root/Caddyfile
 ###
@@ -92,6 +94,8 @@
     	}
     }
 ###
+</details>
+
 ##  下载安装伪网站
 ###
     git clone https://github.com/sdhz153/StaticPicture.git
