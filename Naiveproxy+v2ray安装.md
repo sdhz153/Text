@@ -47,7 +47,7 @@
 ###
 ##  创建文件夹
 ###
-    mkdir -p /usr/share/caddy/ /etc/ssl/caddy/ var/log/caddy/
+    mkdir -p /usr/share/caddy/ /etc/ssl/caddy/ /var/log/caddy/
 ###
 
 ##  打开Caddyfile文件 保存退出
