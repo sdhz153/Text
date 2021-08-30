@@ -114,32 +114,37 @@
     echo "net.core.default_qdisc=fq" >> /etc/sysctl.conf && echo "net.ipv4.tcp_congestion_control=bbr" >> /etc/sysctl.conf && sysctl -p && lsmod | grep bbr
 ###
 
-##  新建caddy.service文件，命令：
-###
-    nano /etc/systemd/system/caddy.service
-###
-##  添加如下内容
-###
-    [Unit]
-    Description=Caddy
-    Documentation=https://caddyserver.com/docs/
-    After=network.target network-online.target
-    Requires=network-online.target
+##  新建caddy.service文件，
+##  添加如下内容，回车键入：
 
-    [Service]
-    User=root
-    ExecStart=/root/caddy run --environ --config /root/Caddyfile
-    ExecReload=/root/caddy reload --config /root/Caddyfile
-    TimeoutStopSec=5s
-    LimitNOFILE=1048576
-    LimitNPROC=512
-    PrivateTmp=true
-    ProtectSystem=full
-    AmbientCapabilities=CAP_NET_BIND_SERVICE
+<details>
+<summary>caddy.service</summary
 
-    [Install]
-    WantedBy=multi-user.target
-###
+```bash
+cat >/etc/systemd/system/caddy.service <<EOF
+[Unit]
+Description=Caddy
+Documentation=https://caddyserver.com/docs/
+After=network.target network-online.target
+Requires=network-online.target
+
+[Service]
+User=root
+ExecStart=/root/caddy run --environ --config /root/Caddyfile
+ExecReload=/root/caddy reload --config /root/Caddyfile
+TimeoutStopSec=5s
+LimitNOFILE=1048576
+LimitNPROC=512
+PrivateTmp=true
+ProtectSystem=full
+AmbientCapabilities=CAP_NET_BIND_SERVICE
+
+[Install]
+WantedBy=multi-user.target
+EOF					     
+```
+</details>					     
+
 ##  安装v2ray
 ###
     curl -O https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/install-release.sh && bash install-release.sh
