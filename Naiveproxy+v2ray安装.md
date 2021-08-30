@@ -8,9 +8,10 @@
     apt-get install libnss3 wget git curl unzip
 ###
 ##  校准时间
-###bash
-    ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && date -R
-###
+
+ ```bash
+ ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && date -R
+ ```
 ##  下载安装GO编程语言
 ###
     wget https://golang.org/dl/go1.17.linux-amd64.tar.gz
