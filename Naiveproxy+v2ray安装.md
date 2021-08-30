@@ -52,48 +52,52 @@
 ###
 
 
-<details>
-<summary>打开Caddyfile文件 保存退出</summary>
+
+### 打开Caddyfile文件 保存退出
 ###
     nano /root/Caddyfile
 ###
-###
-    {
-    	order forward_proxy before map
-    	admin off
-    	log {
-    		output file /var/log/caddy/access.log
-    		level ERROR
-    	}
-    	servers :443 {
-    		protocol {
-    			experimental_http3
-    		}
-    	}
-    }
-    :443, www.yyxx.cf {
-        root * /usr/share/caddy
-        file_server
-    	tls /etc/ssl/caddy/www.yyxx.cf_chain.crt /etc/ssl/caddy/www.yyxx.cf_key.key {
-    		ciphers TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384 TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256 TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256
-    		alpn h2 http/1.1
-    	}
-    	forward_proxy {
-    		basic_auth sdhz150 3e06-4b7f-b8c6-33333
-    		hide_ip
-    		hide_via
-    		probe_resistance github.com
-    	}
-    	reverse_proxy /125a62438124/ localhost:11152 {
-    		transport http {
-    			versions h2c
-    		}
-    	}
-    	header {
-    		Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
-    	}
-    }
-###
+
+<details>
+<summary>Caddyfile</summary>
+
+```bash
+{
+	order forward_proxy before map
+	admin off
+	log {
+		output file /var/log/caddy/access.log
+		level ERROR
+	}
+	servers :443 {
+		protocol {
+			experimental_http3
+		}
+	}
+}
+:443, www.yyxx.cf {
+    root * /usr/share/caddy
+    file_server
+	tls /etc/ssl/caddy/www.yyxx.cf_chain.crt /etc/ssl/caddy/www.yyxx.cf_key.key {
+		ciphers TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384 TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256 TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256
+		alpn h2 http/1.1
+	}
+	forward_proxy {
+		basic_auth sdhz153 xxxxx3e06-xxxx-b8c6-xxxx
+		hide_ip
+		hide_via
+		probe_resistance github.com
+	}
+	reverse_proxy /125a62438124/ localhost:11152 {
+		transport http {
+			versions h2c
+		}
+	}
+	header {
+		Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+	}
+}
+```
 </details>
 
 ##  下载安装伪网站
