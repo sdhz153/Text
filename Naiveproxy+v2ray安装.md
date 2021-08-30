@@ -118,7 +118,7 @@
 ##  添加如下内容，回车键入：
 
 <details>
-<summary>caddy.service</summary
+<summary>caddy.service</summary>
 
 ```bash
 cat >/etc/systemd/system/caddy.service <<EOF
@@ -141,7 +141,7 @@ AmbientCapabilities=CAP_NET_BIND_SERVICE
 
 [Install]
 WantedBy=multi-user.target
-EOF					     
+EOF
 ```
 </details>					     
 
