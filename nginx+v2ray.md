@@ -77,63 +77,6 @@
 
 ###
     nano /usr/local/etc/v2ray/config.json
-
-## VLESS
-###
-    {
-     "log": {
-           "access": "/var/log/v2ray/access.log",
-           "error": "/var/log/v2ray/error.log",
-           "loglevel": "warning"
-      },
-     "inbounds": [
-       {
-       "port":43627,
-         "listen": "127.0.0.1", 
-         "tag": "VLESS-in", 
-         "protocol": "VLESS", 
-         "settings": {
-           "clients": [
-             {
-	     "id":"3f094ce3-ab40-ad8e-f9fc-941bd8667e8c",
-               "alterId": 0
-             }
-           ],
-	    "decryption": "none"
-      }, 
-      "streamSettings": {
-        "network": "ws", 
-        "wsSettings": {
-	  "path":"/d12f17ad-a344-f61b-1fef-13a2a2d98663/"
-        }
-      }
-    }
-     ], 
-     "outbounds": [
-    {
-      "protocol": "freedom", 
-      "settings": { }, 
-      "tag": "direct"
-    }, 
-    {
-      "protocol": "blackhole", 
-      "settings": { }, 
-      "tag": "blocked"
-    }
-     ],
-     "routing": {
-       "domainStrategy": "AsIs",
-       "rules": [
-      {
-        "type": "field",
-        "inboundTag": [
-          "VLESS-in"
-        ],
-        "outboundTag": "direct"
-      }
-    ]
-     }
-    }
 ###
 ## vmess
 ###
