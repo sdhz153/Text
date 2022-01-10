@@ -60,6 +60,63 @@
     WantedBy=multi-user.target
     EOF
 ###
+
+## /etc/nginx/nginx.conf
 ###
-     nginx.conf
+     https://github.com/sdhz153/Text/blob/main/nginx.conf
+###
+
+## 校准时间
+
+###
+    ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && date -R
+###
+
+## 安装v2ray
+###
+    curl -O https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/install-release.sh && bash install-release.sh
+###
+
+
+## BBR
+## 修改系统变量
+
+###
+    echo "net.core.default_qdisc=fq" >> /etc/sysctl.conf && echo "net.ipv4.tcp_congestion_control=bbr" >> /etc/sysctl.conf && sysctl -p && lsmod | grep bbr
+###
+
+## 开启nginx
+
+###
+    systemctl start nginx && systemctl status nginx && systemctl enable nginx
+###
+
+## 重新启动
+###
+    systemctl restart nginx
+###
+
+## 停止nginx
+###
+    service nginx stop
+###
+
+## 启动 V2Ray
+
+###
+    systemctl start v2ray
+###
+
+###
+    systemctl status v2ray
+###
+
+## 设置为开机自动启动
+###
+    systemctl enable v2ray
+###
+
+## 每次修改后都要执行一次重启
+ ###
+    systemctl restart v2ray
 ###
