@@ -77,9 +77,15 @@
     curl -O https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/install-release.sh && bash install-release.sh
 ###
 ## 编辑 /etc/v2ray/config.json 文件来配置你需要的代理方式。
-
+## VMess
 ###
     https://github.com/sdhz153/Text/blob/main/config.json
+###
+
+## VLESS
+
+###
+    https://github.com/sdhz153/Text/blob/main/VLESS/config.json
 ###
 
 ## BBR
