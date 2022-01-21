@@ -34,6 +34,7 @@
           --with-http_secure_link_module \
           --with-http_v2_module \
           --with-cc-opt='-O3' \
+          --with-openssl-opt=enable-tls1_3 \
           --with-openssl=../openssl-1.1.1k
 ###
 ###
