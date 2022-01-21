@@ -87,6 +87,11 @@
     systemctl restart caddy
 ###
 
+## 每次修改后都要执行一次重启
+ ###
+    systemctl enable caddy
+###
+
 ##停止caddy
 ###
     service caddy stop
