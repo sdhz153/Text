@@ -11,7 +11,7 @@
     tar -zxvf openssl-1.1.1m.tar.gz
 ###
 ###
-    wget -nc --no-check-certificate http://nginx.org/download/nginx-1.21.5.tar.gz
+    wget -nc --no-check-certificate https://nginx.org/download/nginx-1.20.2.tar.gz
 ###
 ###
     tar -zxvf nginx-1.21.5.tar.gz
