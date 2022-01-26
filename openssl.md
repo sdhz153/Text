@@ -1,15 +1,3 @@
-## 查看debian版本
-
-###
-    cat /etc/issue
-###
-
-## 更新系统
-
-###
-    apt-get update  && apt-get upgrade
-###
-
 ## 查看openssl版本
 
 ###
@@ -58,4 +46,16 @@
 ###
 	ln -s /usr/local/lib64/libssl.so.1.1 /usr/lib64/libssl.so.1.1
 	ln -s /usr/local/lib64/libcrypto.so.1.1 /usr/lib64/libcrypto.so.1.1
+###
+
+## 查看debian版本
+
+###
+    cat /etc/issue
+###
+
+## 更新系统
+
+###
+    apt-get update  && apt-get upgrade
 ###
