@@ -1,3 +1,15 @@
+## 查看debian版本
+
+###
+    cat /etc/issue
+###
+
+## 更新系统
+
+###
+    apt-get update  && apt-get upgrade
+###
+
 ## 查看openssl版本
 
 ###
