@@ -130,7 +130,8 @@
 ###
     systemctl start nginx
 ###
-   systemctl status nginx
+###
+    systemctl status nginx
 ###
 
 ## 设置为开机自动启动
