@@ -1,4 +1,17 @@
+## 查看debian版本
+
+###
+    cat /etc/issue
+###
+
+## 更新系统
+
+###
+    apt-get update  && apt-get upgrade
+###
+
 ## 安装依赖
+
 ###
     apt update && apt -y install build-essential libpcre3 libpcre3-dev zlib1g-dev git dbus manpages-dev aptitude g++ wget curl unzip
 ###
