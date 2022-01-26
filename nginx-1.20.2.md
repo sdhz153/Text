@@ -27,10 +27,10 @@
     wget -nc --no-check-certificate https://nginx.org/download/nginx-1.20.2.tar.gz
 ###
 ###
-    tar -zxvf nginx-1.21.5.tar.gz
+    tar -zxvf nginx-1.20.2.tar.gz
 ###
 ###
-    cd nginx-1.21.5
+    cd nginx-1.20.2
 ###
 ###
     mkdir -p /etc/nginx/ssl
