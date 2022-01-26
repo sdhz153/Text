@@ -1,41 +1,41 @@
-## ²é¿´openssl°æ±¾
+## æŸ¥çœ‹opensslç‰ˆæœ¬
 
 ###
 	openssl version
 ###
 
-## ¸üĞÂopenssl
+## æ›´æ–°openssl
 
 ###
-	wget https://www.openssl.org/source/openssl-1.1.1m.tar.gz
+	wget -nc --no-check-certificate https://www.openssl.org/source/openssl-1.1.1m.tar.gz
 ###
 
-## ½âÑ¹
+## è§£å‹
 ###
 	tar -xzvf openssl-1.1.1m.tar.gz
 ###
 
-## ½øÈë
+## è¿›å…¥
 
 ###
 	cd openssl-1.1.1m
 ###
 	./config
 ###
-## °²×°
+## å®‰è£…
 ###
 	make && make install
 ###
 
-## ²é¿´openssl°æ±¾
+## æŸ¥çœ‹opensslç‰ˆæœ¬
 
 ###
 	openssl version
 ###
-## ÒªÊÇ°æ±¾Ã»±ä´ÓĞÂ¿ªÆôĞÂµÄÖÕ¶Ë
+## è¦æ˜¯ç‰ˆæœ¬æ²¡å˜ä»æ–°å¼€å¯æ–°çš„ç»ˆç«¯
 
-## ËµÃ÷£ºÉı¼¶ºóÈç¹ûÖ´ĞĞ openssl version ÃüÁî³öÏÖopenssl: error while loading shared 
-## libraries: libssl.so.1.1: cannot open shared object file: No such file or directory´íÎó¡£Ö´ĞĞÒÔÏÂÃüÁî¼´¿É¡£
+## è¯´æ˜ï¼šå‡çº§åå¦‚æœæ‰§è¡Œ openssl version å‘½ä»¤å‡ºç°openssl: error while loading shared 
+## libraries: libssl.so.1.1: cannot open shared object file: No such file or directoryé”™è¯¯ã€‚æ‰§è¡Œä»¥ä¸‹å‘½ä»¤å³å¯ã€‚
 
 ###
 	ln -s /usr/local/lib64/libssl.so.1.1 /usr/lib64/libssl.so.1.1
