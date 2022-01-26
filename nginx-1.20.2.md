@@ -128,7 +128,15 @@
 ## 开启nginx
 
 ###
-    systemctl start nginx && systemctl status nginx && systemctl enable nginx
+    systemctl start nginx
+###
+   systemctl status nginx
+###
+
+## 设置为开机自动启动
+
+###
+    systemctl enable nginx
 ###
 
 ## 重新启动
