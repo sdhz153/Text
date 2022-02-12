@@ -48,6 +48,12 @@
 	ln -s /usr/local/lib64/libcrypto.so.1.1 /usr/lib64/libcrypto.so.1.1
 ###
 
+## 说明：升级后如果执行 openssl version 命令出现openssl: symbol lookup error: openssl: undefined symbol: EVP_mdc2, version OPENSSL_1_1_0
+
+###
+    ldconfig
+###
+
 ## 查看debian版本
 
 ###
