@@ -1,0 +1,66 @@
+{
+ "log": {
+       "access": "/var/log/xray/access.log",
+        "error": "/var/log/xray/error.log",
+        "loglevel": "warning"
+  },
+ "inbounds": [
+   {
+   "port":11111,
+     "listen": "127.0.0.1", 
+     "tag": "VLESS-in", 
+     "protocol": "VLESS", 
+     "settings": {
+     "clients": [
+	   {
+            "id": "0d51b58b-22c9-b88a-6f0c-e14d316d8ac6",
+            "alterId": 0
+        },
+		{
+			"id": "d6870ad1-971e-1f8c-f413-46b4c6570e9e",
+			"alterId": 0
+		},
+		{
+			"id": "4abf543b-e95e-be69-cccf-bb1b84d46360",
+			"alterId": 0
+		},
+        {
+			"id":"6cbba9f7-5ad6-d62f-ddc8-fe00f44c7634",
+           "alterId": 0
+        }
+     ],
+    "decryption": "none"
+  }, 
+  "streamSettings": {
+    "network": "ws", 
+    "wsSettings": {
+  "path":"/sssse3bss919/"
+    }
+  }
+}
+ ], 
+ "outbounds": [
+{
+  "protocol": "freedom", 
+  "settings": { }, 
+  "tag": "direct"
+}, 
+{
+  "protocol": "blackhole", 
+  "settings": { }, 
+  "tag": "blocked"
+}
+ ],
+ "routing": {
+   "domainStrategy": "AsIs",
+   "rules": [
+  {
+    "type": "field",
+    "inboundTag": [
+      "VLESS-in"
+    ],
+    "outboundTag": "direct"
+  }
+]
+ }
+}
