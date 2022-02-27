@@ -50,7 +50,9 @@
           --with-cpu-opt=CPU \
           --with-openssl-opt=enable-tls1_3 \
           --with-openssl=../openssl-1.1.1m \
-          --with-stream_ssl_preread_module
+          --with-stream \
+          --with-stream_ssl_preread_module \
+          --with-stream_ssl_module
 ###
 ###
     make && make install
