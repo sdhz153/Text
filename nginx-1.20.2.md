@@ -52,7 +52,8 @@
           --with-openssl=../openssl-1.1.1m \
           --with-stream \
           --with-stream_ssl_preread_module \
-          --with-stream_ssl_module
+          --with-stream_ssl_module \
+          --with-stream_realip_module
 ###
 ###
     make && make install
