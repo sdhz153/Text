@@ -32,9 +32,7 @@
 ###
     cd nginx-1.20.2
 ###
-###
-    mkdir -p /etc/nginx/ssl
-###
+
 ###
     ./configure --prefix=/etc/nginx \
           --with-http_ssl_module \
@@ -78,6 +76,14 @@
     [Install]
     WantedBy=multi-user.target
     EOF
+###
+
+###
+    mkdir -p /etc/nginx/ssl /etc/systemd/system/nginx.service.d
+###
+
+###
+    printf "[Service]\nExecStartPost=/bin/sleep 0.1\n" > /etc/systemd/system/nginx.service.d/override.conf
 ###
 
 ## /etc/nginx/nginx.conf
