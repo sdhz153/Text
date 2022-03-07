@@ -30,7 +30,7 @@
     tar -zxvf nginx-1.20.2.tar.gz
 ###
 ###
-    cd nginx-1.20.2
+    rm -rf nginx-1.20.2.tar.gz && cd nginx-1.20.2
 ###
 
 ###
