@@ -24,9 +24,7 @@
 ## 进入
 
 ###
-	cd openssl-1.1.1m
-###
-	./config
+	rm -rf openssl-1.1.1m.tar.gz && cd openssl-1.1.1m && ./config
 ###
 ## 安装
 ###
