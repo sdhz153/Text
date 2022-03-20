@@ -13,18 +13,18 @@
 ## 更新openssl
 
 ###
-	wget -nc --no-check-certificate https://www.openssl.org/source/openssl-1.1.1m.tar.gz
+	wget -nc --no-check-certificate https://www.openssl.org/source/openssl-1.1.1n.tar.gz
 ###
 
 ## 解压
 ###
-	tar -xzvf openssl-1.1.1m.tar.gz
+	tar -xzvf openssl-1.1.1n.tar.gz
 ###
 
 ## 进入
 
 ###
-	rm -rf openssl-1.1.1m.tar.gz && cd openssl-1.1.1m && ./config
+	rm -rf openssl-1.1.1n.tar.gz && cd openssl-1.1.1n && ./config
 ###
 ## 安装
 ###
