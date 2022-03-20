@@ -19,9 +19,9 @@
 ## 1.下载/安装 openssl-1.1.1（使 nginx 支持TLS 1.3）
 
 ###
-    wget -nc --no-check-certificate https://www.openssl.org/source/openssl-1.1.1m.tar.gz
+    wget -nc --no-check-certificate https://www.openssl.org/source/openssl-1.1.1n.tar.gz
 ###
-    tar -zxvf openssl-1.1.1m.tar.gz
+    tar -zxvf openssl-1.1.1n.tar.gz
 ###
     wget -nc --no-check-certificate https://nginx.org/download/nginx-1.20.2.tar.gz
 ###
@@ -50,7 +50,7 @@
 		--with-cc-opt='-O3' \
 		--with-cpu-opt=CPU \
 		--with-openssl-opt=enable-tls1_3 \
-		--with-openssl=../openssl-1.1.1m \
+		--with-openssl=../openssl-1.1.1n \
 		--with-stream \
 		--with-stream_ssl_preread_module \
 		--with-stream_ssl_module \
