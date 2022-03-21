@@ -31,31 +31,31 @@
 ###
 
 ###
-	./configure --prefix=/etc/nginx \
-		--with-http_ssl_module \
-		--with-http_gzip_static_module \
-		--with-http_stub_status_module \
-		--with-pcre \
-		--with-http_realip_module \
-		--with-http_flv_module \
-		--with-http_mp4_module \
-		--with-http_secure_link_module \
-		--with-http_v2_module \
-		--with-http_auth_request_module \
-		--with-http_dav_module \
-		--with-http_slice_module \
-		--with-http_addition_module \
-		--with-http_gunzip_module \
-		--with-http_sub_module \
-		--with-cc-opt='-O3' \
-		--with-cpu-opt=CPU \
-		--with-openssl-opt=enable-tls1_3 \
-		--with-openssl=../openssl-1.1.1n \
-		--with-stream \
-		--with-stream_ssl_preread_module \
-		--with-stream_ssl_module \
-		--with-stream_realip_module \
-		--with-threads
+    ./configure --prefix=/etc/nginx \
+	--with-http_ssl_module \
+	--with-http_gzip_static_module \
+	--with-http_stub_status_module \
+	--with-pcre \
+	--with-http_realip_module \
+	--with-http_flv_module \
+	--with-http_mp4_module \
+	--with-http_secure_link_module \
+	--with-http_v2_module \
+	--with-http_auth_request_module \
+	--with-http_dav_module \
+	--with-http_slice_module \
+	--with-http_addition_module \
+	--with-http_gunzip_module \
+	--with-http_sub_module \
+	--with-cc-opt='-O3' \
+	--with-cpu-opt=CPU \
+	--with-openssl-opt=enable-tls1_3 \
+	--with-openssl=../openssl-1.1.1n \
+	--with-stream \
+	--with-stream_ssl_preread_module \
+	--with-stream_ssl_module \
+	--with-stream_realip_module \
+	--with-threads
 ###
     make && make install
 ###
@@ -91,7 +91,7 @@
 ## /etc/nginx/nginx.conf
 
 ###
-     https://github.com/sdhz153/Text/blob/main/SNI/nginx.conf
+    https://github.com/sdhz153/Text/blob/main/SNI/nginx.conf
 ###
 
 ## 校准时间
@@ -138,35 +138,35 @@
 ## 安装Trojan-go
 
 ###
-	wget -nc --no-check-certificate https://github.com/p4gefau1t/trojan-go/releases/download/v0.10.6/trojan-go-linux-amd64.zip
+    wget -nc --no-check-certificate https://github.com/p4gefau1t/trojan-go/releases/download/v0.10.6/trojan-go-linux-amd64.zip
 ###
-	unzip -o trojan-go-linux-amd64.zip -d /etc/trojan-go
+    unzip -o trojan-go-linux-amd64.zip -d /etc/trojan-go
 ###
-	rm -rf trojan-go-linux-amd64.zip
+    rm -rf trojan-go-linux-amd64.zip
 ###
-	mkdir -p /etc/ssl/trojan /usr/share/trojan-go
+    mkdir -p /etc/ssl/trojan /usr/share/trojan-go
 ###
-	sed -i 's/User=nobody/User=root/' /etc/trojan-go/example/trojan-go.service
+    sed -i 's/User=nobody/User=root/' /etc/trojan-go/example/trojan-go.service
 ###
-	sed -i 's#ExecStart=/usr/bin/trojan-go -config /etc/trojan-go/config.json#ExecStart=/etc/trojan-go/trojan-go -config /etc/trojan-go/example/server.json#' /etc/trojan-go/example/trojan-go.service
+    sed -i 's#ExecStart=/usr/bin/trojan-go -config /etc/trojan-go/config.json#ExecStart=/etc/trojan-go/trojan-go -config /etc/trojan-go/example/server.json#' /etc/trojan-go/example/trojan-go.service
 ###
-	sed -i 's/User=nobody/User=root/' /etc/trojan-go/example/trojan-go@.service
+    sed -i 's/User=nobody/User=root/' /etc/trojan-go/example/trojan-go@.service
 ###
-	sed -i 's#ExecStart=/usr/bin/trojan-go -config /etc/trojan-go/%i.json#ExecStart=/etc/trojan-go/trojan-go -config /etc/trojan-go/example/%i.json#' /etc/trojan-go/example/trojan-go@.service
+    sed -i 's#ExecStart=/usr/bin/trojan-go -config /etc/trojan-go/%i.json#ExecStart=/etc/trojan-go/trojan-go -config /etc/trojan-go/example/%i.json#' /etc/trojan-go/example/trojan-go@.service
 ###
-	cp /etc/trojan-go/example/trojan-go.service /etc/systemd/system/trojan-go.service
+    cp /etc/trojan-go/example/trojan-go.service /etc/systemd/system/trojan-go.service
 ###
-	cp /etc/trojan-go/example/trojan-go@.service /etc/systemd/system/trojan-go@.service
+    cp /etc/trojan-go/example/trojan-go@.service /etc/systemd/system/trojan-go@.service
 ###
-	cp /etc/trojan-go/geosite.dat /usr/share/trojan-go/geosite.dat
+    cp /etc/trojan-go/geosite.dat /usr/share/trojan-go/geosite.dat
 ###
-	cp /etc/trojan-go/geoip.dat /usr/share/trojan-go/geoip.dat
+    cp /etc/trojan-go/geoip.dat /usr/share/trojan-go/geoip.dat
 ###
 	
 ## 修改 server.json
 	
 ###
-	https://github.com/sdhz153/Text/blob/main/SNI/server.json
+    https://github.com/sdhz153/Text/blob/main/SNI/server.json
 ###
 	
 ##证书自己申请，放在/etc/ssl/trojan/
@@ -182,7 +182,7 @@
 ## 重新加载单元
 
 ###
-	systemctl daemon-reload
+    systemctl daemon-reload
 ###
 
 ## 开启nginx
@@ -280,5 +280,11 @@
 ## 关闭 trojan-go
 
 ###
-	service trojan-go stop
+    service trojan-go stop
+###
+
+## 查看错误日志
+
+###
+    journalctl -fu trojan-go
 ###
