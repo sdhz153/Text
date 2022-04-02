@@ -65,7 +65,6 @@
 		--with github.com/hairyhenderson/caddy-teapot-module \
 		--with github.com/kirsch33/realip \
 		--with github.com/porech/caddy-maxmind-geolocation \
-		--with github.com/caddyserver/format-encoder \
 		--with github.com/mholt/caddy-webdav
 ###
 
