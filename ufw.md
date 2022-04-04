@@ -63,5 +63,19 @@
 ## 删除上面的规则
 
 ###
-	ufw delete allow from 192.168.254.254
+     ufw delete allow from 192.168.254.254
+###
+
+## 修改22端口
+
+###
+     nano /etc/ssh/sshd_config
+###
+
+## 把 Port 22 改为一千以上的端口
+
+## 重启sshd服务
+
+###
+    systemctl restart sshd
 ###
