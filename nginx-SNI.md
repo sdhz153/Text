@@ -88,7 +88,7 @@
     printf "[Service]\nExecStartPost=/bin/sleep 0.1\n" > /etc/systemd/system/nginx.service.d/override.conf
 ###
 
-## /etc/nginx/nginx.conf
+## /etc/nginx/conf/nginx.conf
 
 ###
     https://github.com/sdhz153/Text/blob/main/SNI/nginx.conf
