@@ -1,0 +1,98 @@
+{
+    "log": {
+        "access": "/var/log/xray/access.log",
+        "error": "/var/log/xray/error.log",
+        "loglevel": "warning"
+    },
+    "inbound": {
+        "port": 22345,
+        "protocol": "vmess",
+        "settings": {
+            "clients": [
+                {
+                    "id": "3ace85d0-1c21-31b9-0389-3b4dedc4e18e",
+                    "level": 1,
+                    "alterId": 0
+                },
+                {
+                    "id": "c86aa69f-a361-07c6-50f0-b512f745c166",
+                    "level": 1,
+                    "alterId": 0
+                }
+            ]
+        },
+		"streamSettings":{
+			"network":"ws",
+			"wsSettings":{
+				"path":"/82c60ee4-d0fb-7c90-81fd-a50c0d33e357/"
+			}
+		}
+    },
+    "outbound": {
+        "protocol": "freedom",
+        "settings": {}
+    },
+    "inboundDetour": [
+        {
+            "port": 22345,
+            "listen": "127.0.0.1",
+            "tag": "VLESS-in", 
+            "protocol": "VLESS",
+            "settings": {
+				"clients": [
+					{
+					"id": "7c3701d3-3ce6-5233-c0da-8fc9099392aa"
+					},
+					{
+					"id": "6cb0c20d-3432-9b96-4e33-a76855260b68"
+					},
+					{
+					"id": "398c54bd-cc43-6bd6-e102-819975338e2e"
+					}
+				],
+				"decryption": "none"
+			},
+			"streamSettings": {
+				"network": "ws",
+				"wsSettings": {
+					"path": "/82c60ee4-d0fb-7c90-81fd-a50c0d33e357/"
+				}
+			}
+        }
+    ],
+    "outboundDetour": [
+        {
+            "protocol": "blackhole",
+            "settings": {},
+            "tag": "blocked"
+        }
+    ],
+    "routing": {
+        "strategy": "rules",
+        "settings": {
+            "rules": [
+                {
+                    "type": "field",
+                    "ip": [
+                        "0.0.0.0/8",
+                        "10.0.0.0/8",
+                        "100.64.0.0/10",
+                        "127.0.0.0/8",
+                        "169.254.0.0/16",
+                        "172.16.0.0/12",
+                        "192.0.0.0/24",
+                        "192.0.2.0/24",
+                        "192.168.0.0/16",
+                        "198.18.0.0/15",
+                        "198.51.100.0/24",
+                        "203.0.113.0/24",
+                        "::1/128",
+                        "fc00::/7",
+                        "fe80::/10"
+                    ],
+                    "outboundTag": "blocked"
+                }
+            ]
+        }
+    }
+}

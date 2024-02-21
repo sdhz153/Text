@@ -1,0 +1,39 @@
+{
+    "run_type": "server",
+    "local_addr": "0.0.0.0",
+    "local_port": 10241,
+    "remote_addr": "127.0.0.1",
+    "remote_port": 80,
+    "password": [
+        "e9ce18db-password"
+    ],
+    "log_level": 1,
+    "log_file": "/var/log/trojan-go.log",
+    "buffer_size": 32,
+    "ssl": {
+        "cert": "/etc/ssl/trojan/u360.xyz_bundle.crt",
+        "key": "/etc/ssl/trojan/u360.xyz.key",
+        "sni": "u360.xyz",
+		"fallback_addr": "127.0.0.1",
+        "fallback_port": 10240,
+		"fingerprint": "chrome"
+    },
+    "mux": {
+        "enabled": true,
+        "concurrency": 8,
+        "idle_timeout": 60
+    },
+  "websocket": {
+    "enabled": true,
+    "path": "/fTY9Bx7c",
+    "host": "u360.xyz"
+  },
+    "router": {
+        "enabled": true,
+        "block": [
+            "geoip:private"
+        ],
+        "geoip": "/usr/share/trojan-go/geoip.dat",
+        "geosite": "/usr/share/trojan-go/geosite.dat"
+    }
+}

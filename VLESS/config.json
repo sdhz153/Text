@@ -1,0 +1,54 @@
+{
+ "log": {
+       "access": "/var/log/v2ray/access.log",
+       "error": "/var/log/v2ray/error.log",
+       "loglevel": "warning"
+  },
+ "inbounds": [
+   {
+   "port":11121,
+     "listen": "127.0.0.1", 
+     "tag": "VLESS-in", 
+     "protocol": "VLESS", 
+     "settings": {
+       "clients": [
+         {
+     "id":"f132-eYiW4w7r6kLM205HcP",
+           "alterId": 0
+         }
+       ],
+    "decryption": "none"
+  }, 
+  "streamSettings": {
+    "network": "ws", 
+    "wsSettings": {
+  "path":"/xxx1bdda5de1691/"
+    }
+  }
+}
+ ], 
+ "outbounds": [
+{
+  "protocol": "freedom", 
+  "settings": { }, 
+  "tag": "direct"
+}, 
+{
+  "protocol": "blackhole", 
+  "settings": { }, 
+  "tag": "blocked"
+}
+ ],
+ "routing": {
+   "domainStrategy": "AsIs",
+   "rules": [
+  {
+    "type": "field",
+    "inboundTag": [
+      "VLESS-in"
+    ],
+    "outboundTag": "direct"
+  }
+]
+ }
+}

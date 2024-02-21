@@ -1,0 +1,41 @@
+{
+	order reverse_proxy before route
+	admin off
+	log {
+		output file /var/log/caddy/access.log
+	}
+	servers :443 {
+		protocol {
+			experimental_http3
+		}
+	}
+}
+
+www.e7d5.biz,
+e7d5.biz {
+    root * /usr/share/caddy
+    file_server
+	encode zstd gzip
+	
+    tls /etc/ssl/caddy/e7d5.biz_chain.crt /etc/ssl/caddy/e7d5.biz_key.key {
+        dns cloudflare q-abbbbbngsfsfszgzgfdfgzdgfdgfgzfgzdXZ9
+        protocols tls1.2 tls1.3
+        ciphers TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384 TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256 TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256
+		curves x25519
+    }
+	@host {
+		host www.e7d5.biz, e7d5.biz
+	}
+	route @host {
+		header {
+			Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+		}
+	}
+    @mywebsocket {
+        path /sssse3bss919/
+        header Connection *Upgrade*
+        header Upgrade websocket
+    }
+    reverse_proxy @mywebsocket localhost:11111
+	
+}
