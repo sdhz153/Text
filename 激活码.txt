@@ -7,6 +7,28 @@ slmgr /ato
 slmgr /ipk NPPR9-FWDCX-D2C8J-H872K-2YT43
 
 
+slmgr.vbs -ipk W269N-WFGWX-YVC9B-4J6C9-T83GX
+slmgr.vbs -skms 192.168.2.1
+slmgr.vbs -ato
 
+查看激活状态
+ slmgr.vbs -dlv
+
+
+1.打开“注册表编辑器”；（Windows + R然后输入 Regedit）
+
+2.修改SkipRearm 的值为1；（在HKEY_LOCAL_MACHINE–>SOFTWARE–>Microsoft–>Windows NT–>CurrentVersion–>SoftwareProtectionPlatform里面，将SkipRearm的值修改为1）重启电脑
+
+3.以管理员身份启动cmd，输入SLMGR -REARM，根据提示，再次重启电脑。
+
+4.slmgr /ipk DCPHK-NFMTC-H88MJ-PFHPY-QJ4BJ（也可改成其它号）
+
+5.slmgr /skms xykz.f3322.org
+
+6.slmgr /ato
+
+成功。
+
+计算机\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\SoftwareProtectionPlatform
 
 https://github.com/xiaozhu2021/key
