@@ -1,0 +1,27 @@
+https://mirrors.huaweicloud.com/mirrorDetail/5ea14ecab05943f36fb75ee5?mirrorName=centos&catalog=os
+
+配置方法
+CentOS-9 stream 的镜像地址为：https://mirrors.huaweicloud.com/centos-stream/
+
+1、备份配置文件：
+
+cp -a /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.bak
+
+
+2、配置下列方案。
+
+方案：
+
+下载新的CentOS-Base.repo文件到/etc/yum.repos.d/目录下，选择 CentOS 版本：
+CentOS 7
+
+执行如下命令：
+
+wget -O /etc/yum.repos.d/CentOS-Base.repo https://mirrors.huaweicloud.com/repository/conf/CentOS-7-anon.repo
+
+
+3、执行yum clean all清除原有 yum 缓存
+
+4、执行yum makecache（刷新缓存）或者yum repolist all（查看所有配置可以使用的文件，会自动刷新缓存）。
+
+※ 提醒： CentOS 8.x（非 Stream 版）已提前进入 EOL 停止服务阶段，相关镜像已移入CentOS-Vault镜像仓库。
